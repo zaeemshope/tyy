@@ -1,0 +1,99 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    padding: 20px;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.header img {
+    width: 125px;
+}
+
+.form {
+    width: 100%;
+    max-width: 300px;
+}
+
+.input-container {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+input,
+#password {
+    flex: 1;
+    padding: 8px;
+    border: none;
+    border-radius: 25px;
+    box-sizing: border-box;
+    margin-top: 5px;
+    background-color: #f0f0f0;
+    text-align: right;
+    font-size: 14px;
+    height: 40px;
+}
+
+#phone {
+    order: 2;
+    width: 75px;
+    margin-left: auto;
+    direction: rtl;
+    height: 40px;
+    color: #08D3CB;
+    margin-bottom: 0;
+}
+
+.country-code {
+    background-color: #f0f0f0;
+    padding: 8px;
+    border-radius: 25px;
+    margin-right: 5px;
+    order: 1;
+    width: 60px;
+    height: 40px;
+}
+
+#phone + .country-code {
+    color: rgba(128, 128, 128, 0.5);
+}
+
+button.login-button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    background-color: #08D3CB;
+    color: white;
+}
+
+input:focus,
+#password:focus,
+#phone:focus,
+.country-code:focus {
+    outline: none;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/* إضافة مسافة بين النصوص وتغيير لونها إلى الرصاصي الشفاف */
+.forgot-password,
+.new-account {
+    color: rgba(128, 128, 128, 0.5);
+    margin-top: 25px;
+    text-align: center;
+}

